@@ -217,3 +217,41 @@
    }
 ]
 ```
+### 12. Список всех заказов
+##### Запрос
+```GET http://api/shop_order```
+##### Ответ
+```json
+[
+   {
+      "id":1,
+      "cart_id":1,
+      "product_count":1,
+      "product_id":1
+   },
+   {
+      "id":2,
+      "cart_id":1,
+      "product_count":2,
+      "product_id":2
+   }
+]
+```
+### 13. Список товаров в корзине
+##### Запрос
+```GET http://api/cart```
+##### Ответ
+```json
+[
+   {
+      "id":1,
+      "customer_id":1,
+      "cart_date":"2020-08-02 23:40:06.583736"
+   },
+   {
+      "id":2,
+      "customer_id":2,
+      "cart_date":"2020-05-18 00:00:00"
+   }
+]
+```
