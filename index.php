@@ -95,6 +95,22 @@ $app->get('/vendor_list', function (Request $request, Response $response, $args)
     return $response;
 });
 
+$app->get('/shop_order', function (Request $request, Response $response, $args) use ($pdo){
+    $stmt = $pdo->query('SELECT * FROM shop_order');
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $response->getBody()->write(json_encode($data));
+    $response = $response->withHeader("Content-Type", "application/json");
+    return $response;
+});
+
+$app->get('/cart', function (Request $request, Response $response, $args) use ($pdo){
+    $stmt = $pdo->query('SELECT * FROM cart');
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $response->getBody()->write(json_encode($data));
+    $response = $response->withHeader("Content-Type", "application/json");
+    return $response;
+});
+
 //$app->get('/customer/{id}', function (Request $request, Response $response) use ($pdo) {
 //    $route = $request->getAttribute('route');
 //    $id = $route->getArgument('id');
